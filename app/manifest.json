@@ -11,8 +11,8 @@
     }
   },
   "icons": {
-    "16": "stackrec-16.png",
-    "128": "stackrec-128.png"
+    "16": "recordall-16.png",
+    "128": "recordall-128.png"
   },
   "permissions": [
     "desktopCapture"

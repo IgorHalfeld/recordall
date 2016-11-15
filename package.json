@@ -7,7 +7,11 @@
     "Igor Luíz <igor@devstacks.com.br>"
   ],
   "scripts": {
-    "test": "NODE_ENV=development"
+    "start": "npm-run-all --parallel build gulp-tasks",
+    "gulp-tasks": "gulp",
+    "build": "npm run browserify && npm run uglify",
+    "browserify": "watchify -vd -p browserify-hmr -e src/js/app.js -o app/dist/app.js",
+    "uglify": "uglifyjs dist/angulado.js -o dist/angulado.min.js"
   },
   "keywords": [
     "stackrec",
