@@ -1,0 +1,10 @@
+
+.header {
+  height: 4rem;
+  background-color: $color-main;
+
+  > .header-title {
+    text-align: center;
+    color: $color-gray-light;
+  }
+}

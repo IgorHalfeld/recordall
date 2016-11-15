@@ -1,0 +1,17 @@
+
+// Enable on development
+// * {
+//   background-color: rgba(0, 0, 0, 0.1);
+// }
+
+html,
+body {
+  color: $color-black;
+  font-family: $font-family;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}

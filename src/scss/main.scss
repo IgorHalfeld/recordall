@@ -1,13 +1,15 @@
 
 $font-family: 'Asap', sans-serif;
+$font-size: 10px;
 
-body {
-  background: #f4f4f4;
-  color: #444;
-  font-family: $font-family;
-}
+$color-main: #dd6565;
+$color-black: #444;
+$color-gray-dark: #d7d7da;
+$color-gray-light: #fbfbfb;
 
 
 @import
   '_normalize.scss',
-  '_fonts.scss';
+  '_fonts.scss',
+  '_base',
+  'header/_header';
