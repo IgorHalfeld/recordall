@@ -1,7 +1,7 @@
 {
   "name": "stackrec",
   "version": "0.0.1",
-  "description": "Simple and powerful solution to record screens",
+  "description": "Simple and powerful chrome extension to record screens",
   "main": "src/js/main.js",
   "contributors": [
     "Igor Luíz <igor@devstacks.com.br>"
