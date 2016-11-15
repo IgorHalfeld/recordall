@@ -1,0 +1,23 @@
+{
+  "name": "stackrec",
+  "version": "0.0.1",
+  "description": "Simple and powerful solution to record screens",
+  "main": "src/js/main.js",
+  "contributors": [
+    "Igor Luíz <igor@devstacks.com.br>"
+  ],
+  "scripts": {
+    "test": "NODE_ENV=development"
+  },
+  "keywords": [
+    "stackrec",
+    "screencast",
+    "record",
+    "screen"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Stackrec",
+  "description": "Simple and powerful solution to record screens",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": [
+        "main.js"
+      ]
+    }
+  },
+  "icons": {
+    "16": "stackrec-16.png",
+    "128": "stackrec-128.png"
+  },
+  "permissions": [
+    "desktopCapture"
+  ]
+}
