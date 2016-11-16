@@ -1,0 +1,34 @@
+// Page helper
+.fx.pulse {
+  animation: pulse 2s infinite ease-in;
+  border: 1px solid $color-main;
+}
+
+// Page keyframes
+@keyframes pulse {
+  to {
+    width: 22rem;
+    height: 22rem;
+    opacity: 0.2;
+  }
+}
+
+.start-record {
+  @include circle-secondary();
+  position: relative;
+  border: none;
+  cursor: pointer;
+}
+
+.start-record-alert {
+  @include circle-main();
+  position: relative;
+  border: none;
+  cursor: pointer;
+}
+
+.fx {
+  @include circle-main($width: 6rem);
+  position: absolute;
+  background-color: transparent;
+}

@@ -1,4 +1,4 @@
-chrome.app.runtime.onLaunched.addListener(() => {
+chrome.app.runtime.onLaunched.addListener(function () {
   chrome.app.window.create('dist/index.html', {
     outerBounds: {
       width: 400,

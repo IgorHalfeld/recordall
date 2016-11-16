@@ -5,11 +5,14 @@ $font-size: 10px;
 $color-main: #dd6565;
 $color-black: #444;
 $color-gray-dark: #d7d7da;
+$color-gray-middle: lighten($color-gray-dark, 10%);
 $color-gray-light: #fbfbfb;
 
 
 @import
   '_normalize.scss',
+  'mixins/_box',
   '_fonts.scss',
   '_base',
-  'header/_header';
+  'header/_header',
+  'content/index/_index';
