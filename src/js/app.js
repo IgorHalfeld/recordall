@@ -1,5 +1,8 @@
 
-import Store from './store'
-import StartRecord from './start-record'
+import Vue from 'vue'
+import App from './App.vue'
 
-StartRecord(Store.buttonRecord, Store.fx)
+let vue = new Vue({
+  el: '#app',
+  render: (h) => h(App)
+})

@@ -15,14 +15,8 @@
   },
   "browserify": {
     "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015"
-          ]
-        }
-      ]
+      "babelify",
+      "vueify"
     ]
   },
   "keywords": [
@@ -39,8 +33,9 @@
     "browserify": "^13.1.1",
     "browserify-hmr": "^0.3.5",
     "gulp": "^3.9.1",
-    "gulp-pug": "^3.1.0",
     "gulp-sass": "^2.3.2",
-    "uglifyjs": "^2.4.10"
+    "pug": "^0.1.0",
+    "uglifyjs": "^2.4.10",
+    "vueify": "^9.3.0"
   }
 }
