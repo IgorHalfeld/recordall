@@ -1,0 +1,16 @@
+
+@mixin flexify($align-horizon: false, $align-vertical: false, $direction: false) {
+  display: flex;
+
+  @if ($align-horizon != false) {
+    justify-content: $align-horizon;
+  }
+
+  @if ($align-vertical != false) {
+    align-items: $align-vertical;
+  }
+
+  @if ($direction != false) {
+    flex-direction: $direction;
+  }
+}

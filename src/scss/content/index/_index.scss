@@ -1,9 +1,3 @@
-// Page helper
-.fx.pulse {
-  animation: pulse 2s infinite ease-in;
-  border: 1px solid $color-main;
-}
-
 // Page keyframes
 @keyframes pulse {
   to {
@@ -13,22 +7,54 @@
   }
 }
 
-.start-record {
-  @include circle-secondary();
+// Page placeholder
+%circle-shape {
   position: relative;
   border: none;
   cursor: pointer;
 }
 
-.start-record-alert {
-  @include circle-main();
-  position: relative;
-  border: none;
-  cursor: pointer;
+// Page helper
+.fx.pulse {
+  animation: pulse 2s infinite ease-in;
+  border: 1px solid $color-main;
 }
 
-.fx {
-  @include circle-main($width: 6rem);
-  position: absolute;
-  background-color: transparent;
+.fade-enter-active, .fade-leave-active {
+  transition: all .5s;
+}
+.fade-enter, .fade-leave-active {
+  margin-left: 10rem;
+  opacity: 0;
+}
+
+.box {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  @include flexify($align-horizon: center, $align-vertical: center);
+
+  > .start-record {
+    @include circle-secondary();
+    @extend %circle-shape;
+  }
+
+  > .start-record-alert {
+    @include circle-main();
+    @extend %circle-shape;
+  }
+
+  > .fx {
+    @include circle-main($width: 6rem);
+    position: absolute;
+    background-color: transparent;
+  }
+}
+
+.video-preview {
+  max-width: 20rem;
+  height: auto;
+  border: 0.1rem solid $color-gray-middle;
+  border-radius: 0.2rem;
+  box-shadow: 0rem 0rem 10rem 0.1rem $color-gray-dark;
 }

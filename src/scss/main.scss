@@ -13,6 +13,7 @@ $color-gray-light: #fbfbfb;
 @import
   '_normalize.scss',
   'mixins/_box',
+  'mixins/_flex',
   '_fonts.scss',
   '_base',
   'header/_header',

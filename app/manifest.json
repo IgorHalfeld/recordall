@@ -15,6 +15,7 @@
     "128": "recordall-128.png"
   },
   "permissions": [
-    "desktopCapture"
+    "desktopCapture",
+    "fileSystem"
   ]
 }
