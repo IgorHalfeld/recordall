@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -40,9 +40,9 @@
      id="namedview11"
      showgrid="false"
      units="px"
-     inkscape:zoom="0.65187207"
-     inkscape:cx="32.726754"
-     inkscape:cy="138.3919"
+     inkscape:zoom="0.64"
+     inkscape:cx="238.06895"
+     inkscape:cy="332.9599"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -54,7 +54,7 @@
        y2="420.87"
        gradientUnits="userSpaceOnUse"
        x2="997.90997"
-       gradientTransform="matrix(1.1479352,0,0,1.1479352,-246.32346,-526.68721)"
+       gradientTransform="matrix(0.99018052,0,0,0.99018052,-178.11592,-419.95077)"
        y1="935.15997"
        x1="43.924">
       <stop
@@ -67,6 +67,54 @@
          stop-opacity="0"
          offset="1" />
     </linearGradient>
+    <linearGradient
+       id="linearGradient4218-3"
+       y2="420.87"
+       gradientUnits="userSpaceOnUse"
+       x2="997.90997"
+       gradientTransform="matrix(0.99018052,0,0,0.99018052,-165.61051,-417.26973)"
+       y1="935.15997"
+       x1="43.924">
+      <stop
+         id="stop4214-6"
+         stop-color="#3d8585"
+         offset="0" />
+      <stop
+         id="stop4216-7"
+         stop-color="#3d8585"
+         stop-opacity="0"
+         offset="1" />
+    </linearGradient>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4662">
+      <circle
+         style="fill:none;stroke:#3d8585;stroke-width:14.64118195;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         cy="252.68414"
+         cx="262.50848"
+         id="ellipse4664"
+         r="0" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4662-2">
+      <circle
+         style="fill:none;stroke:#3d8585;stroke-width:14.64118195;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         cy="252.68414"
+         cx="262.50848"
+         id="ellipse4664-7"
+         r="0" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4662-26">
+      <circle
+         style="fill:none;stroke:#3d8585;stroke-width:14.64118195;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         cy="252.68414"
+         cx="262.50848"
+         id="ellipse4664-1"
+         r="0" />
+    </clipPath>
   </defs>
   <circle
      style="fill:none;stroke:#3d8585;stroke-width:4.69999981"
@@ -74,10 +122,46 @@
      cy="247.15622"
      cx="142.83"
      id="path4136" />
-  <circle
-     style="fill:none;stroke:url(#linearGradient4218);stroke-width:6.88769102"
-     r="236.55913"
+  <ellipse
+     style="fill:none;stroke:url(#linearGradient4218);stroke-width:14.64118152;stroke-miterlimit:4;stroke-dasharray:none"
      cy="250.0031"
      cx="250.0031"
-     id="path4210" />
+     id="path4210"
+     r="204.05005" />
+  <rect
+     style="opacity:1;fill:#3d8585;fill-opacity:1;stroke:none;stroke-width:3.11203861;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect4660-2"
+     width="420.88141"
+     height="236.47459"
+     x="52.067802"
+     y="16.209532"
+     clip-path="url(#clipPath4662-2)"
+     transform="matrix(1,0,0,1.0637929,-5.4237294,0.15172603)" />
+  <rect
+     style="opacity:1;fill:#3d8585;fill-opacity:1;stroke:none;stroke-width:3.11203861;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="rect4660-0"
+     width="420.88141"
+     height="236.47459"
+     x="52.067802"
+     y="16.209532"
+     clip-path="url(#clipPath4662-26)"
+     transform="matrix(1,0,0,1.0637929,-5.4237294,0.15172603)" />
+  <circle
+     style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:12.06015015;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path4718"
+     cx="250.0031"
+     cy="250.0031"
+     r="207.81508" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40.00049591px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="162.50201"
+     y="351.56686"
+     id="text4714"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4716"
+       x="162.50201"
+       y="351.56686"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:semi-condensed;font-size:250.00309753px;font-family:Akkadian;-inkscape-font-specification:'Akkadian Semi-Condensed';fill:#3d8585;fill-opacity:1">R</tspan></text>
 </svg>
