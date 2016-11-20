@@ -37,5 +37,8 @@
     "pug": "^0.1.0",
     "uglifyjs": "^2.4.10",
     "vueify": "^9.3.0"
+  },
+  "dependencies": {
+    "event-emitter": "^0.3.4"
   }
 }

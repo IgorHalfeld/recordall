@@ -1,6 +1,10 @@
 
 import Vue from 'vue'
+import emitter from 'event-emitter'
+
 import App from './App.vue'
+
+global.Emitter = emitter({})
 
 let vue = new Vue({
   el: '#app',

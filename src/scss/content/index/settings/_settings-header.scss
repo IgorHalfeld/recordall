@@ -1,0 +1,28 @@
+.header {
+  @include flexify($align-horizon: space-between, $align-vertical: center);
+  flex-basis: 2rem;
+  background-color: transparent;
+
+  > .header-title {
+    margin-left: 0.5rem;
+
+    .title {
+      margin: 0;
+      font-weight: bold;
+      color: $color-gray-light;
+    }
+  }
+
+  > .icon-settings {
+    margin-right: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    fill: $color-black;
+    cursor: pointer;
+    transition: all .1s ease-in;
+
+    &:hover {
+      transform: rotate(45deg);
+    }
+  }
+}

@@ -14,7 +14,12 @@ $color-gray-light: #fbfbfb;
   '_normalize.scss',
   'mixins/_box',
   'mixins/_flex',
+  'placeholders/_box',
+  'placeholders/_buttons',
   '_fonts.scss',
   '_base',
   'header/_header',
-  'content/index/_index';
+  'content/index/_index',
+  'content/index/settings/_settings',
+  'content/index/settings/_settings-header',
+  'content/index/settings/_settings-content';

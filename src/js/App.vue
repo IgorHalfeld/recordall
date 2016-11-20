@@ -1,30 +1,40 @@
 <template lang="pug">
-  div.container
-    div.box
-      span(
-        class="fx",
-        :class="{ 'pulse' : isRecording }")
-      button(
-        class="start-record",
-        id="start-record",
-        :class="{ 'start-record-alert' : isRecording }",
-        @click="init()") {{ buttonRecord }}
-    transition(name="fade")
-      video(
-        autoplay,
-        class="video-preview",
-        v-if="isRecording"
-        ref="preview")
+  div
+    div.container
+      div.box
+        span(
+          class="fx",
+          :class="{ 'pulse' : isRecording }")
+        button(
+          class="start-record",
+          id="start-record",
+          :class="{ 'start-record-alert' : isRecording }",
+          @click="init()") {{ buttonRecord }}
+      transition(name="fade")
+        video(
+          autoplay,
+          class="video-preview",
+          v-if="isRecording"
+          ref="preview")
+    Settings
 </template>
 
 <script>
+import Settings from './components/settings/settings.vue'
+
 export default {
   name: 'Recordall',
+  components: { Settings },
   data () {
     return {
       recorder: '',
-      isRecording: false,
-      buttonRecord: 'START RECORD'
+      isRecording: false
+    }
+  },
+
+  computed: {
+    buttonRecord () {
+      return this.isRecording ? 'STOP RECORD' : 'START RECORD'
     }
   },
 
@@ -40,17 +50,15 @@ export default {
 
     stop () {
       this.isRecording = false
-      this.buttonRecord = 'START RECORD'
       console.log('Stopping record')
       this.recorder.ondataavailable = (e) => {
-        console.log(e)
+        console.log(URL.createObjectURL(e.data))
       }
       this.recorder.stop()
     },
 
     initRecord (id) {
       this.isRecording = true
-      this.buttonRecord = 'STOP RECORD'
       navigator.webkitGetUserMedia({
         audio: false,
         video: {

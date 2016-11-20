@@ -1,0 +1,19 @@
+.settings-content {
+  @include flexify($direction: column);
+  padding: 0.5rem;
+  height: 100vh;
+
+  > .location-save-title {
+
+  }
+
+  > .location-save-place {
+    border: 0.1rem solid $color-gray-middle;
+    padding: 0.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.2rem;
+    color: $color-black;
+    height: 1.5rem;
+  }
+}
