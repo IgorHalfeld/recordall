@@ -9,7 +9,13 @@
           class="start-record",
           id="start-record",
           :class="{ 'start-record-alert' : isRecording }",
-          @click="init()") {{ buttonRecord }}
+          @click="init()")
+          svg(
+            class="icon-record",
+            :class="{ 'icon-recording': isRecording }",)
+            use(xlink:href="#icon-record")
+          br
+          | {{ buttonRecord }}
       transition(name="fade")
         video(
           autoplay,

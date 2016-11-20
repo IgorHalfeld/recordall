@@ -14,20 +14,6 @@
   cursor: pointer;
 }
 
-// Page helper
-.fx.pulse {
-  animation: pulse 2s infinite ease-in;
-  border: 1px solid $color-main;
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: all .5s;
-}
-.fade-enter, .fade-leave-active {
-  margin-left: 10rem;
-  opacity: 0;
-}
-
 .box {
   position: relative;
   width: 10rem;
@@ -37,6 +23,12 @@
   > .start-record {
     @include circle-secondary();
     @extend %circle-shape;
+
+    > .icon-record {
+      width: 1rem;
+      height: 1rem;
+      fill: $color-black;
+    }
   }
 
   > .start-record-alert {
@@ -57,4 +49,21 @@
   border: 0.1rem solid $color-gray-middle;
   border-radius: 0.2rem;
   box-shadow: 0rem 0rem 10rem 0.1rem $color-gray-dark;
+}
+
+// Page helper
+.fx.pulse {
+  animation: pulse 2s infinite ease-in;
+  border: 1px solid $color-main;
+}
+.box > .start-record > .icon-recording {
+  fill: $color-gray-light;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .5s;
+}
+.fade-enter, .fade-leave-active {
+  margin-left: 10rem;
+  opacity: 0;
 }
