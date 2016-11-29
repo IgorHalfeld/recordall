@@ -1,19 +1,40 @@
+label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  margin-right: 15px;
+  font-size: 13px;
+}
+
 .settings-content {
   @include flexify($direction: column);
   padding: 0.5rem;
   height: 100vh;
 
-  > .location-save-title {
+  > .settings-checkbox {
 
-  }
+    > .settings-audio-checkbox {
+      border: none;
 
-  > .location-save-place {
-    border: 0.1rem solid $color-gray-middle;
-    padding: 0.2rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    border-radius: 0.2rem;
-    color: $color-black;
-    height: 1.5rem;
+      &:checked + label:before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+        position: absolute;
+        left: 0;
+        bottom: 1px;
+        background-color: #aaa;
+        box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+        content: '✔';
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+        font-size: 15px;
+        color: #f3f3f3;
+        text-align: center;
+        line-height: 15px;
+      }
+    }
   }
 }
