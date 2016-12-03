@@ -5,6 +5,7 @@ $font-size: 10px;
 $color-main: #dd6565;
 $color-secondary: #3d8585;
 $color-black: #444;
+$color-black-light: lighten($color-black, 20%);
 $color-gray-dark: #d7d7da;
 $color-gray-middle: lighten($color-gray-dark, 10%);
 $color-gray-light: #fbfbfb;

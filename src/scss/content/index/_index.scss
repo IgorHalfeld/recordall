@@ -67,3 +67,37 @@
   margin-left: 10rem;
   opacity: 0;
 }
+
+.container-modal {
+  @include flexify(space-around, center, column);
+  position: absolute;
+  width: 55vw;
+  height: 55vh;
+  background-color: $color-gray-middle;
+  border-radius: 0.3rem;
+  z-index: 2;
+  box-shadow: 0rem 0rem 10rem 0.1rem $color-gray-dark;
+
+  > .modal-title {
+    color: $color-black-light;
+    text-align: center;
+  }
+
+  > .modal-button {
+    padding: 0.7rem 4rem 0.7rem 4rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: $color-gray-light;
+    transition: all .2s ease-in-out;
+    color: $color-black-light;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+
+    &:hover {
+      background-color: $color-main;
+      color: $color-gray-light;
+      // border-color: $color-secondary;
+    }
+  }
+}

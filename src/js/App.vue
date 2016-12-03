@@ -1,6 +1,14 @@
 <template lang="pug">
   div
     div.container
+      transition(name="fade")
+        div(
+          class="container-modal",
+          v-if="isRecordingEnd")
+          h2(class="modal-title") You just need click bellow to download the screencast!
+          a(
+            class="modal-button",
+            @click="download()") Get it
       div.box
         span(
           class="fx",
@@ -34,7 +42,8 @@ export default {
   data () {
     return {
       recorder: '',
-      isRecording: false
+      isRecording: false,
+      isRecordingEnd: false
     }
   },
 
@@ -49,6 +58,10 @@ export default {
       this.isRecording ? this.stop() : this.start()
     },
 
+    download () {
+      this.isRecordingEnd = false
+    },
+
     start () {
       console.log('Starting record')
       chrome.desktopCapture.chooseDesktopMedia(['screen', 'window', 'tab'], this.initRecord)
@@ -59,6 +72,7 @@ export default {
       console.log('Stopping record')
       this.recorder.ondataavailable = (e) => {
         console.log(URL.createObjectURL(e.data))
+        this.isRecordingEnd = true
       }
       this.recorder.stop()
     },
@@ -88,7 +102,7 @@ export default {
     },
 
     getUserMediaError (e) {
-      // @TODO: handle error to stop effects also
+      // @TODO: handle error to stop effects as well
       console.log(e)
     }
   }
