@@ -4,10 +4,11 @@
       transition(name="fade")
         div(
           class="container-modal",
-          v-if="isRecordingEnd")
+          v-show="isRecordingEnd")
           h2(class="modal-title") You just need click bellow to download the screencast!
           a(
             class="modal-button",
+            ref="target",
             @click="download()") Get it
       div.box
         span(
@@ -42,6 +43,7 @@ export default {
   data () {
     return {
       recorder: '',
+      stream: null,
       isRecording: false,
       isRecordingEnd: false
     }
@@ -70,11 +72,18 @@ export default {
     stop () {
       this.isRecording = false
       console.log('Stopping record')
-      this.recorder.ondataavailable = (e) => {
-        console.log(URL.createObjectURL(e.data))
-        this.isRecordingEnd = true
-      }
+      let video = []
       this.recorder.stop()
+      this.recorder.ondataavailable = (e) => {
+        video.push(e.data)
+        console.log(URL.createObjectURL(new Blob(video)))
+        this.isRecordingEnd = true
+        this.$refs.target.href = URL.createObjectURL(new Blob(video, {
+          type: 'video/webm'
+        }))
+        this.$refs.target.download = 'video.webm'
+        this.stream = null
+      }
     },
 
     initRecord (id) {
@@ -95,10 +104,13 @@ export default {
     },
 
     gotStream (stream) {
-      console.log(stream)
-      this.$refs.preview.src = URL.createObjectURL(stream)
-      this.recorder = new MediaRecorder(stream)
+      this.stream = stream
+      this.$refs.preview.src = URL.createObjectURL(this.stream)
+      this.recorder = new MediaRecorder(this.stream, {
+        mimeType: 'video/webm'
+      })
       this.recorder.start()
+      console.log(this.stream)
     },
 
     getUserMediaError (e) {
