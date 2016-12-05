@@ -31,7 +31,6 @@
           class="video-preview",
           v-if="isRecording"
           ref="preview")
-    Settings
 </template>
 
 <script>
@@ -71,19 +70,24 @@ export default {
 
     stop () {
       this.isRecording = false
-      console.log('Stopping record')
-      let video = []
       this.recorder.stop()
-      this.recorder.ondataavailable = (e) => {
-        video.push(e.data)
-        console.log(URL.createObjectURL(new Blob(video)))
-        this.isRecordingEnd = true
-        this.$refs.target.href = URL.createObjectURL(new Blob(video, {
-          type: 'video/webm'
-        }))
-        this.$refs.target.download = 'video.webm'
-        this.stream = null
-      }
+
+      let chunks = []
+      console.log('Stopping record')
+
+      // Stop handler
+      this.recorder.addEventListener('stop', (evt) => {
+        console.log([e.data])
+        console.log(new Blob([e.data]))
+      })
+
+      // Reciever the data
+      this.recorder.addEventListener('ondataavailable', (evt) => {
+        // this.isRecordingEnd = true
+        // this.$refs.target.href = URL.createObjectURL(e.data)
+        // this.$refs.target.download = 'video.webm'
+        // this.stream = null
+      })
     },
 
     initRecord (id) {
