@@ -43,6 +43,7 @@ export default {
     return {
       recorder: '',
       stream: null,
+      chunks: [],
       isRecording: false,
       isRecordingEnd: false
     }
@@ -72,28 +73,22 @@ export default {
       this.isRecording = false
       this.recorder.stop()
 
-      let chunks = []
       console.log('Stopping record')
 
       // Stop handler
       this.recorder.addEventListener('stop', (evt) => {
-        console.log([e.data])
-        console.log(new Blob([e.data]))
-      })
-
-      // Reciever the data
-      this.recorder.addEventListener('ondataavailable', (evt) => {
-        // this.isRecordingEnd = true
-        // this.$refs.target.href = URL.createObjectURL(e.data)
-        // this.$refs.target.download = 'video.webm'
-        // this.stream = null
+        this.isRecordingEnd = true
+        console.log(this.recorder);
+        console.log(this.chunks);
+        this.$refs.target.href = URL.createObjectURL(new Blob(this.chunks, { type: 'video/webm' }))
+        this.$refs.target.download = `screencast ${new Date()}.webm`
+        this.stream = null
       })
     },
 
     initRecord (id) {
       this.isRecording = true
-      navigator.webkitGetUserMedia({
-        audio: false,
+      navigator.mediaDevices.getUserMedia({
         video: {
           mandatory: {
             chromeMediaSource: 'desktop',
@@ -104,7 +99,9 @@ export default {
             maxHeight: 720
           }
         }
-      }, this.gotStream, this.getUserMediaError)
+      })
+      .then(this.gotStream)
+      .catch(this.getUserMediaError)
     },
 
     gotStream (stream) {
@@ -114,7 +111,11 @@ export default {
         mimeType: 'video/webm'
       })
       this.recorder.start()
-      console.log(this.stream)
+
+      // Reciever the data
+      this.recorder.addEventListener('dataavailable', (evt) => {
+        this.chunks.push(evt.data);
+      })
     },
 
     getUserMediaError (e) {
