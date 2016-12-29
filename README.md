@@ -17,6 +17,10 @@
 
 **keep it simple, Stupid**
 
+### How to install
+
+You just need enable developer mode on extension page, and upload `app` folder, But if you still can not install it, I'll make a video showing how to install and use it ;)
+
 ### To-do
 
 + Support mp4.
