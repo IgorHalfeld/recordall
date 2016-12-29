@@ -1,18 +1,18 @@
 module.exports = {
-    "extends": "vue",
+    "extends": "standard",
     "installedESLint": true,
     "plugins": [
-        "standard",
-        "promise",
-        "html"
+      "standard",
+      "promise",
+      "html"
     ],
     "env": {
       "browser": true,
       "node": true
     },
     "rules": {
-        "semi": ["error", "never"],
-        "quotes": ["error", "single"]
+      "semi": ["error", "never"],
+      "quotes": ["error", "single"]
     },
     "globals": {
       "Vue": true,

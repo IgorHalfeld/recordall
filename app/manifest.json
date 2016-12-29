@@ -16,7 +16,7 @@
   },
   "permissions": [
     "desktopCapture",
-    "fileSystem",
-    "storage"
+    "storage",
+    "notifications"
   ]
 }

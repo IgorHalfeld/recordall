@@ -4792,6 +4792,10 @@ vue-template-es2015-compiler@^1.2.2:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.4.2.tgz#0bc595cda68fc27779568926fcead13553a335df"
 
+vue@^2.1.8:
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.1.8.tgz#ae30aa86024fccf5535292ce414e7b4c221a1756"
+
 vueify@^9.3.0:
   version "9.4.0"
   resolved "https://registry.yarnpkg.com/vueify/-/vueify-9.4.0.tgz#bb9d4a73023cab3941e58e231bf7914284b375a2"

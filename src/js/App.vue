@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import NotificationHelper from './modules/notification-helper'
 import Settings from './components/settings/settings.vue'
 
 export default {
@@ -62,6 +63,7 @@ export default {
 
     download () {
       this.isRecordingEnd = false
+      NotificationHelper('Your screencast was saved on Download\'s folder.')
     },
 
     start () {
@@ -78,8 +80,6 @@ export default {
       // Stop handler
       this.recorder.addEventListener('stop', (evt) => {
         this.isRecordingEnd = true
-        console.log(this.recorder);
-        console.log(this.chunks);
         this.$refs.target.href = URL.createObjectURL(new Blob(this.chunks, { type: 'video/webm' }))
         this.$refs.target.download = `screencast ${new Date()}.webm`
         this.stream = null
@@ -94,9 +94,9 @@ export default {
             chromeMediaSource: 'desktop',
             chromeMediaSourceId: id,
             minWidth: 1280,
-            maxWidth: 1280,
+            maxWidth: 1920,
             minHeight: 720,
-            maxHeight: 720
+            maxHeight: 1080
           }
         }
       })

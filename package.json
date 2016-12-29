@@ -45,6 +45,7 @@
     "vueify": "^9.3.0"
   },
   "dependencies": {
-    "event-emitter": "^0.3.4"
+    "event-emitter": "^0.3.4",
+    "vue": "^2.1.8"
   }
 }
