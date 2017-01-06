@@ -26,4 +26,5 @@ You just need enable developer mode on extension page, and upload `app` folder, 
 + Support mp4.
 + Record audio as well.
 + Create a settings tab (already exists the component).
++ Show how much time has already been recorded.
 + and more [here](https://github.com/Halfeld/recordall/projects/1)...
