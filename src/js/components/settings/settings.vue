@@ -13,9 +13,6 @@
 <script>
 import HeaderContent from './settings-header.vue'
 import SettingsContent from './settings-content.vue'
-import setPlaceWhereSave from '../../modules/setPlaceWhereSave'
-
-setPlaceWhereSave({ changed: false, place: '~/Videos' })
 
 export default {
   name: 'settings',

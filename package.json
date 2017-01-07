@@ -1,6 +1,6 @@
 {
   "name": "recordall",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "Simple and powerful chrome extension to record screens",
   "main": "src/js/main.js",
   "contributors": [

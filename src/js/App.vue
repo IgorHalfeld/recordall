@@ -31,6 +31,8 @@
           class="video-preview",
           v-if="isRecording"
           ref="preview")
+      transition(name="fade")
+        strong(v-if="isRecording") {{ videoTime }}
 </template>
 
 <script>
@@ -46,7 +48,9 @@ export default {
       stream: null,
       chunks: [],
       isRecording: false,
-      isRecordingEnd: false
+      isRecordingEnd: false,
+      videoIntervalTime: undefined,
+      videoTime: undefined
     }
   },
 
@@ -56,6 +60,7 @@ export default {
     }
   },
 
+  // TODO: Comments all methods
   methods: {
     init () {
       this.isRecording ? this.stop() : this.start()
@@ -63,7 +68,32 @@ export default {
 
     download () {
       this.isRecordingEnd = false
-      NotificationHelper('Your screencast was saved on Download\'s folder.')
+      NotificationHelper('Your screencast was saved on download\'s folder.')
+    },
+
+    /**
+     * Pick up how many hours have passed
+     */
+    calculateTime () {
+      const now = new Date().getTime()
+      const self = this
+      let resultTime = undefined
+
+      this.videoIntervalTime = window.setInterval(function () {
+        resultTime = new Date(Math.abs(now - new Date().getTime()))
+
+        // TODO: Refactor this code to do more, with less
+        const h = (resultTime.getHours() < 10) ? `0${resultTime.getHours()}` : resultTime.getHours()
+        const m = (resultTime.getMinutes() < 10) ? `0${resultTime.getMinutes()}` : resultTime.getMinutes()
+        const s = (resultTime.getSeconds() < 10) ? `0${resultTime.getSeconds()}` : resultTime.getSeconds()
+
+        self.videoTime = `${h}:${m}:${s}`
+        console.log(self.videoTime)
+      }, 1000)
+    },
+
+    destroyed () {
+      window.cleanInterval(this.videoIntervalTime)
     },
 
     start () {
@@ -111,6 +141,7 @@ export default {
         mimeType: 'video/webm'
       })
       this.recorder.start()
+      this.calculateTime()
 
       // Reciever the data
       this.recorder.addEventListener('dataavailable', (evt) => {
