@@ -25,6 +25,7 @@ You just need enable developer mode on extension page, and upload `app` folder, 
 
 + [ ] Support mp4.
 + [ ] Record audio as well.
++ [ ] When will save the note, ability to discard as well.
 + [ ] Create a settings tab (already exists the component).
 + [x] Show how much time has already been recorded. [developer branch](https://github.com/Halfeld/recordall/tree/develop)
 + [ ] and more [here](https://github.com/Halfeld/recordall/projects/1)...
