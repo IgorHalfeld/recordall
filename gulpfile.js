@@ -14,7 +14,7 @@ gulp.task('sass', function () {
 })
 
 gulp.task('new-release', function () {
-  return gulp.src('app/*')
+  return gulp.src('app/**/*')
   .pipe(zip(`recordall-${version}.zip`))
   .pipe(gulp.dest('./releases/'))
 })
