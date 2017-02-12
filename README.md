@@ -31,4 +31,4 @@ You just need enable developer mode on extension page, and upload `app` folder, 
 + [x] Show how much time has already been recorded.
 + [ ] and more [here](https://github.com/Halfeld/recordall/projects/1)...
 
-See that changes on [developer branch](https://github.com/Halfeld/recordall/tree/develop) branch.
+See this changes on [developer branch](https://github.com/Halfeld/recordall/tree/develop).
