@@ -6,6 +6,10 @@
           class="container-modal",
           v-show="isRecordingEnd")
           h2(class="modal-title") You just need click bellow to download the screencast!
+          input(
+            class="modal-input",
+            type="text",
+            v-model="screencastName")
           a(
             class="modal-button",
             ref="target",
@@ -50,7 +54,8 @@ export default {
       isRecording: false,
       isRecordingEnd: false,
       videoIntervalTime: undefined,
-      videoTime: undefined
+      videoTime: undefined,
+      screencastName: undefined
     }
   },
 
@@ -62,12 +67,20 @@ export default {
 
   // TODO: Comments all methods
   methods: {
+
+    /**
+     * Start or stop recording
+     */
     init () {
       this.isRecording ? this.stop() : this.start()
     },
 
+    /**
+     * Notificate that the screencast has been downloaded
+     */
     download () {
       this.isRecordingEnd = false
+      this.$refs.target.download = `${this.screencastName}.webm`
       NotificationHelper('Your screencast was saved on download\'s folder.')
     },
 
@@ -92,15 +105,24 @@ export default {
       }, 1000)
     },
 
+    /**
+     * Clear the interval that counted the video
+     */
     destroyed () {
       window.cleanInterval(this.videoIntervalTime)
     },
 
+    /**
+     * Start chrome recording function
+     */
     start () {
       console.log('Starting record')
       chrome.desktopCapture.chooseDesktopMedia(['screen', 'window', 'tab'], this.initRecord)
     },
 
+    /**
+     * Stop recording and put video on download button
+     */
     stop () {
       this.isRecording = false
       this.recorder.stop()
@@ -111,11 +133,14 @@ export default {
       this.recorder.addEventListener('stop', (evt) => {
         this.isRecordingEnd = true
         this.$refs.target.href = URL.createObjectURL(new Blob(this.chunks, { type: 'video/webm' }))
-        this.$refs.target.download = `screencast ${new Date()}.webm`
+        this.screencastName = 'My awesome screencast'
         this.stream = null
       })
     },
 
+    /**
+     * Init recording with coinstraints
+     */
     initRecord (id) {
       this.isRecording = true
       navigator.mediaDevices.getUserMedia({
@@ -134,6 +159,9 @@ export default {
       .catch(this.getUserMediaError)
     },
 
+    /**
+     * If be success on get permissons
+     */
     gotStream (stream) {
       this.stream = stream
       this.$refs.preview.src = URL.createObjectURL(this.stream)
@@ -149,6 +177,9 @@ export default {
       })
     },
 
+    /**
+     * If get an error on get permissons
+     */
     getUserMediaError (e) {
       // @TODO: handle error to stop effects as well
       console.log(e)
