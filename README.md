@@ -28,5 +28,7 @@ You just need enable developer mode on extension page, and upload `app` folder, 
 + [ ] When will save the note, ability to discard as well.
 + [ ] Create a settings tab (already exists the component).
 + [ ] Create a timer, to start recording.
-+ [x] Show how much time has already been recorded. [developer branch](https://github.com/Halfeld/recordall/tree/develop)
++ [x] Show how much time has already been recorded.
 + [ ] and more [here](https://github.com/Halfeld/recordall/projects/1)...
+
+See that changes on [developer branch](https://github.com/Halfeld/recordall/tree/develop) branch.
