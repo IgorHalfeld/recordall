@@ -41,6 +41,7 @@
 
 <script>
 import NotificationHelper from './modules/notification-helper'
+import LoggerHelper from './modules/logger-helper'
 import Settings from './components/settings/settings.vue'
 
 export default {
@@ -97,6 +98,7 @@ export default {
         const s = Math.floor(resultTime.getSeconds() % 3600 % 60)
 
         self.videoTime = `${(m < 10) ? ('0' + h) : h}:${(m < 10) ? ('0' + m) : m }:${(s < 10) ? ('0' + s) : s}`
+        LoggerHelper(`Time count => ${self.videoTime}`)
       }, 1000)
     },
 
@@ -111,7 +113,7 @@ export default {
      * Start chrome recording function
      */
     start () {
-      console.log('Starting record')
+      LoggerHelper('Starting record', 'info')
       chrome.desktopCapture.chooseDesktopMedia(['screen', 'window', 'tab'], this.initRecord)
     },
 
@@ -124,7 +126,7 @@ export default {
       this.videoTime = undefined
       window.clearInterval(this.videoIntervalTime)
 
-      console.log('Stopping record')
+      LoggerHelper('Stopping', 'info')
 
       // Stop handler
       this.recorder.addEventListener('stop', (evt) => {
@@ -139,7 +141,6 @@ export default {
      * Init recording with coinstraints
      */
     initRecord (id) {
-      this.isRecording = true
       navigator.mediaDevices.getUserMedia({
         video: {
           mandatory: {
@@ -160,26 +161,34 @@ export default {
      * If be success on get permissons
      */
     gotStream (stream) {
-      this.stream = stream
-      this.$refs.preview.src = URL.createObjectURL(this.stream)
-      this.recorder = new MediaRecorder(this.stream, {
-        mimeType: 'video/webm'
-      })
-      this.recorder.start()
-      this.calculateTime()
+      this.isRecording = true
 
-      // Reciever the data
-      this.recorder.addEventListener('dataavailable', (evt) => {
-        this.chunks.push(evt.data);
-      })
+      /**
+       * Time out to video enter on DOM
+       */
+      window.setTimeout(() => {
+        this.stream = stream
+        this.$refs.preview.src = URL.createObjectURL(this.stream)
+        this.recorder = new MediaRecorder(this.stream, {
+          mimeType: 'video/webm'
+        })
+        this.recorder.start()
+        this.calculateTime()
+
+        // Reciever the data
+        this.recorder.addEventListener('dataavailable', (evt) => {
+          this.chunks.push(evt.data);
+        })
+      }, 0)
     },
 
     /**
      * If get an error on get permissons
      */
     getUserMediaError (e) {
-      // @TODO: handle error to stop effects as well
-      console.log(e)
+      this.isRecording = false
+      this.stream = null
+      LoggerHelper('Permisson denied', 'error')
     }
   }
 }
