@@ -65,7 +65,6 @@ export default {
     }
   },
 
-  // TODO: Comments all methods
   methods: {
 
     /**
@@ -105,7 +104,7 @@ export default {
      * Clear the interval that counted the video
      */
     destroyed () {
-      window.cleanInterval(this.videoIntervalTime)
+      window.clearInterval(this.videoIntervalTime)
     },
 
     /**
@@ -123,7 +122,7 @@ export default {
       this.isRecording = false
       this.recorder.stop()
       this.videoTime = undefined
-      window.cleanInterval(this.videoIntervalTime)
+      window.clearInterval(this.videoIntervalTime)
 
       console.log('Stopping record')
 
