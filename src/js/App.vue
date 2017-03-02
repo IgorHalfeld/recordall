@@ -90,18 +90,14 @@ export default {
     calculateTime () {
       const now = new Date().getTime()
       const self = this
-      let resultTime = undefined
 
       this.videoIntervalTime = window.setInterval(function () {
-        resultTime = new Date(Math.abs(now - new Date().getTime()))
+        const resultTime = new Date(Math.abs(now - new Date().getTime()))
+        const h = Math.floor(resultTime.getSeconds() / 3600)
+        const m = Math.floor(resultTime.getSeconds() % 3600 / 60)
+        const s = Math.floor(resultTime.getSeconds() % 3600 % 60)
 
-        // TODO: Refactor this code to do more, with less
-        const h = (resultTime.getHours() < 10) ? `0${resultTime.getHours()}` : resultTime.getHours()
-        const m = (resultTime.getMinutes() < 10) ? `0${resultTime.getMinutes()}` : resultTime.getMinutes()
-        const s = (resultTime.getSeconds() < 10) ? `0${resultTime.getSeconds()}` : resultTime.getSeconds()
-
-        self.videoTime = `${h}:${m}:${s}`
-        console.log(self.videoTime)
+        self.videoTime = `${(m < 10) ? ('0' + h) : h}:${(m < 10) ? ('0' + m) : m }:${(s < 10) ? ('0' + s) : s}`
       }, 1000)
     },
 
@@ -126,6 +122,8 @@ export default {
     stop () {
       this.isRecording = false
       this.recorder.stop()
+      this.videoTime = undefined
+      window.cleanInterval(this.videoIntervalTime)
 
       console.log('Stopping record')
 
