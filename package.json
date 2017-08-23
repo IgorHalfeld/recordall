@@ -1,17 +1,17 @@
 {
   "name": "recordall",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "Simple and powerful chrome extension to record screens",
   "main": "src/js/main.js",
   "contributors": [
     "Igor Luíz <igor@devstacks.com.br>"
   ],
   "scripts": {
-    "start": "npm-run-all --parallel build gulp-tasks",
-    "gulp-tasks": "gulp",
+    "start": "./node_modules/.bin/npm-run-all --parallel build gulp-tasks",
+    "gulp-tasks": "./node_modules/.bin/gulp",
     "build": "npm run browserify && npm run uglify",
-    "browserify": "watchify -vd -p browserify-hmr -e src/js/app.js -o app/dist/app.js",
-    "uglify": "uglifyjs dist/app.js -o dist/angulado.min.js"
+    "browserify": "./node_modules/.bin/watchify -vd -p browserify-hmr -e src/js/app.js -o app/dist/app.js",
+    "uglify": "./node_modules/.bin/uglifyjs dist/app.js -o dist/app.min.js"
   },
   "browserify": {
     "transform": [
@@ -41,9 +41,11 @@
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.2",
     "gulp-zip": "^3.2.0",
+    "npm-run-all": "^4.0.2",
     "pug": "^0.1.0",
     "uglifyjs": "^2.4.10",
-    "vueify": "^9.3.0"
+    "vueify": "^9.3.0",
+    "watchify": "^3.9.0"
   },
   "dependencies": {
     "event-emitter": "^0.3.4",
