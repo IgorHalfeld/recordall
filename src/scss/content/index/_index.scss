@@ -83,6 +83,16 @@
     text-align: center;
   }
 
+  > .modal-input {
+    color: $color-black-light;
+    border-radius: 0.3rem;
+    width: 40vw;
+    height: 6vw;
+    padding: 3px 5px 3px 5px;
+    border: none;
+    outline: none;
+  }
+
   > .modal-button {
     padding: 0.7rem 4rem 0.7rem 4rem;
     border: none;
