@@ -12,6 +12,10 @@
 
 ---
 
+### Demonstration
+
+<img style="width: 100%" src="screenshots/gif-demo.gif" alt="demonstration" />
+
 ### Contribute
 
 **keep it simple, Stupid**
