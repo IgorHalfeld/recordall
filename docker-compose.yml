@@ -1,0 +1,12 @@
+
+version: '2'
+
+services:
+  halfeld-boilerplate:
+    container_name: hafeld-boilerplate
+    build: .
+    command: npm start
+    volumes:
+      - .:/src
+    ports:
+      - '8080:3000'

@@ -1,0 +1,11 @@
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+<meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+{% if site.head.imagePathMain %}
+  <meta property="twitter:image" content="{{ site.url }}/assets/img/{{ site.head.imagePathMain }}">
+{% endif %}
+
+{% if site.head.twitter.author %}
+  <meta name="twitter:creator" content="site.head.twitter.author"/>
+{% endif %}

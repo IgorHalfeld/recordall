@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+  {% include head/head.html %}
+</head>
+<body>
+
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl | prepend: site.url }}">
+
+  {{ content }}
+
+  <script src="{{ "/assets/js/main.js" | prepend: site.baseurl | prepend: site.url }}"></script>
+</body>
+</html>

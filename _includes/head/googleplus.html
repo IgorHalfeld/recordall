@@ -1,0 +1,3 @@
+<meta itemprop="name" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}"/>
+<meta itemprop="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}"/>
+<meta itemprop="image" content="{{ site.url }}/assets/img/{{ site.head.imagePathMain }}"/>

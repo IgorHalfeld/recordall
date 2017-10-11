@@ -1,0 +1,21 @@
+<script type="application/ld+json">
+  {
+    '@context': 'http://www.schema.org',
+
+    {% if site.head.jsonld.type %}
+    '@type': {{ site.head.jsonld.type }},
+    {% endif %}
+
+    {% if site.head.jsonld.name %}
+    'name': {{ site.head.jsonld.name }},
+    {% endif %}
+
+    {% if site.head.jsonld.url %}
+    'url': {{ site.head.jsonld.url }},
+    {% endif %}
+
+    {% if site.head.jsonld.email %}
+    'email': {{ site.head.jsonld.email }},
+    {% endif %}
+  }
+</script>

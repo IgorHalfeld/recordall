@@ -1,0 +1,30 @@
+{
+  "name": "halfeld-boilerplate",
+  "description": "A jekyll boilerplate to improve productivity",
+  "main": "gulpfile.js",
+  "authors": [
+    "Halfeld - Igor Luiz"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "halfeld",
+    "jekyll",
+    "boilerplate",
+    "stylus",
+    "browserify",
+    "browser-sync",
+    "babel"
+  ],
+  "homepage": "https://github.com/Halfeld/halfeld-boilerplate",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/src/js/lib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "^3.2.1"
+  }
+}
